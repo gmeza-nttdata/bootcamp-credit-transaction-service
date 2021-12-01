@@ -18,8 +18,7 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class CreditOperationsImpl implements CreditOperations {
     private final StatementRepository statementRepository;
-    @Autowired
-    CreditWebService creditWebService;
+    private final CreditWebService creditWebService;
 
  
     @Override

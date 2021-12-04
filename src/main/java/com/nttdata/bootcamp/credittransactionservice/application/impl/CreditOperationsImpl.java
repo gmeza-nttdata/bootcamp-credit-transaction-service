@@ -64,4 +64,9 @@ public class CreditOperationsImpl implements CreditOperations {
                 .filter(statement -> statement.getNumber().equals(number)
                     );
     }
+
+    @Override
+    public Flux<CreditStatement> getAllStatements() {
+        return statementRepository.queryAll();
+    }
 }

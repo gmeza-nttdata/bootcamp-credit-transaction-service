@@ -33,8 +33,13 @@ public class CreditOperationController {
     }
 
     @GetMapping("statements/{number}")
-    Flux<CreditStatement> getStatements(@PathVariable String number) {
+    Flux<CreditStatement> getStatementsByNumber(@PathVariable String number) {
         return creditOperations.getStatements(number);
+    }
+
+    @GetMapping("statements")
+    Flux<CreditStatement> getStatements() {
+        return creditOperations.getAllStatements();
     }
 
 }

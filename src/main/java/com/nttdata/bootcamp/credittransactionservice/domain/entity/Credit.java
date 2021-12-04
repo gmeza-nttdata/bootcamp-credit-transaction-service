@@ -12,17 +12,16 @@ import java.util.List;
 @Slf4j
 @Data
 public class Credit {
-    private static final int PERSONAL_MAX = 1;
-    private static final int BUSINESS_MAX = Integer.MAX_VALUE;
 
     private String number;
     private Integer userId;
-    private Type userType;
-    private CreditType creditType;
+    private Boolean hasCard;
     private String currencyName;
     private BigDecimal balance;
 
     private BigDecimal creditLine;
-    private LocalDate expiration;
+    private BigDecimal rate;
+    private Integer cutoffDate;
+    private Integer paymentDate;
 
 }

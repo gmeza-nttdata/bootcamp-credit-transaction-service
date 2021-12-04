@@ -15,12 +15,12 @@ public class CreditStatement {
     private OperationType operation;
     private BigDecimal amount;
     private LocalDateTime dateTime;
+    private BigDecimal fee;
 
     public CreditStatement(){}
 
 
     public CreditStatement(Credit credit, OperationType operation, BigDecimal amount) {
-        this.productType = credit.getCreditType().toString();
         this.number = credit.getNumber();
         this.dateTime = LocalDateTime.now();
         this.operation = operation;

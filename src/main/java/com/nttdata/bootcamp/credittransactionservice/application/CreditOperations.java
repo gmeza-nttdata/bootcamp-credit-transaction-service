@@ -21,4 +21,5 @@ public interface CreditOperations {
     Mono<CreditStatement> consumeCredit(OperationData operationData);
     Flux<CreditStatement> getStatements(String number);
 
+    Flux<CreditStatement> getAllStatements();
 }

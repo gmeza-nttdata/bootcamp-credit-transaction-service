@@ -8,7 +8,6 @@ import com.nttdata.bootcamp.credittransactionservice.domain.dto.OperationType;
 import com.nttdata.bootcamp.credittransactionservice.infrastructure.service.CreditWebService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -31,7 +30,7 @@ public class CreditOperationsImpl implements CreditOperations {
                             .flatMap(
                                     updatedCredit ->
                                             statementRepository
-                                                    .create(new CreditStatement(updatedCredit, OperationType.PAYMENT, operationData.getAmount()))
+                                                    .create(new CreditStatement(updatedCredit, OperationType.CREDIT_PAYMENT, operationData.getAmount()))
                             )
                             .onErrorReturn(new CreditStatement());
                 })
@@ -50,7 +49,7 @@ public class CreditOperationsImpl implements CreditOperations {
                             .flatMap(
                                     updatedCredit ->
                                             statementRepository
-                                                    .create(new CreditStatement(updatedCredit, OperationType.CONSUMPTION, operationData.getAmount()))
+                                                    .create(new CreditStatement(updatedCredit, OperationType.PAYMENT, operationData.getAmount()))
                             )
                             .onErrorReturn(new CreditStatement());
                 })
